@@ -1,12 +1,13 @@
 const Sequelize = require('sequelize');
-const loginInfo = require('./db.env.config');
+
+const { DB, DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 function intitializeSequelize() {
   const sequelize = new Sequelize({
-    database: loginInfo.database,
-    username: loginInfo.user,
-    password: loginInfo.password,
-    host: 'db',
+    database: DB,
+    username: DB_USER,
+    password: DB_PASSWORD,
+    host: DB_HOST,
     dialect: 'mysql',
     define: {
       allowNull: false
