@@ -40,6 +40,7 @@
   font-size: 35px;
   color: #282828;
   display: inline;
+  cursor: pointer;
 }
 
 .highlightTeal {

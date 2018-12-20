@@ -5,7 +5,7 @@ export default class MainNav extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchText: 'Search'
+      searchText: 'Search',
     };
     this.handleSearchText = this.handleSearchText.bind(this);
     this.handleSearchClick = this.handleSearchClick.bind(this);
