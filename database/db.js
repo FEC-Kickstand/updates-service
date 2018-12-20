@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize');
 
-const { DB, DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 function intitializeSequelize() {
   const sequelize = new Sequelize({
-    database: DB,
+    database: 'kickstarter',
     username: DB_USER,
     password: DB_PASSWORD,
     host: DB_HOST,
@@ -17,9 +17,11 @@ function intitializeSequelize() {
   const User = sequelize.define('user', {
     userName: Sequelize.STRING(100)
   });
+
   const Project = sequelize.define('project', {
     projectName: Sequelize.STRING
   });
+
   Project.belongsTo(User, { foreignKey: 'ownerId' });
   const Update = sequelize.define('update', {
     title: Sequelize.STRING,
@@ -27,6 +29,7 @@ function intitializeSequelize() {
     likes: Sequelize.INTEGER,
     pubDate: Sequelize.DATE
   });
+
   Update.belongsTo(User, { foreignKey: 'postedBy' });
   Update.belongsTo(Project, { foreignKey: 'projectId' });
 
