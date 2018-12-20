@@ -13,7 +13,7 @@
     "start:prod": "NODE_ENV=production node server/server.js",
     "seed": "node database/seedGenerator.js",
     "test": "jest",
-    "testWatch": "jest --watch"
+    "test-watch": "jest --watch"
   },
   "dependencies": {
     "axios": "^0.18.0",
