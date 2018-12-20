@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Maison Neue Book';
-  src: url('./MaisonNeueBook.otf') format("opentype");
+  src: url('../fonts/MaisonNeueBook.otf') format("opentype");
 }
 
 .date {

@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import styles from './dateHeader.css';
+import styles from '../styles/dateHeader.css';
 
 function DateHeader({ side, pubDate }) {
   const dateAndSpacer = [

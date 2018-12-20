@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import DateHeader from './dateHeader';
-import styles from './preview.css';
+import styles from '../styles/preview.css';
 
 function getHighlightColor() {
   const colors = ['Sky', 'Teal', 'Apricot'];

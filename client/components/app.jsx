@@ -1,7 +1,7 @@
 /* eslint-env browser */
 import React from 'react';
 import axios from 'axios';
-import styles from './app.css';
+import styles from '../styles/app.css';
 import Preview from './preview';
 
 /* eslint-disable */

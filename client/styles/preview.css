@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Cooper Light';
-  src: url('./CooperLightBT.ttf');
+  src: url('../fonts/CooperLightBT.ttf');
 }
 
 @font-face {
   font-family: 'Maison Neue Book';
-  src: url('./MaisonNeueBook.otf') format("opentype");
+  src: url('../fonts/MaisonNeueBook.otf') format("opentype");
 }
 
 .right {

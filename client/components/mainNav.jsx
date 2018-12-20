@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './mainNav.css';
+import styles from '../styles/mainNav.css';
 
 export default class MainNav extends React.Component {
   constructor() {
