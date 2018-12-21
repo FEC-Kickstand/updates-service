@@ -10,7 +10,7 @@ function DateHeader({ side, pubDate }) {
     </div>,
     <div className={styles.spacerContainer} key="2">
       <div className={styles.spacerLine} />
-    </div>
+    </div>,
   ];
 
   return (
@@ -20,12 +20,12 @@ function DateHeader({ side, pubDate }) {
 
 DateHeader.defaultProps = {
   side: 'left',
-  pubDate: moment().toISOString()
+  pubDate: moment().toISOString(),
 };
 
 DateHeader.propTypes = {
   side: PropTypes.oneOf(['left', 'right']),
-  pubDate: PropTypes.string
+  pubDate: PropTypes.string,
 };
 
 export default DateHeader;
