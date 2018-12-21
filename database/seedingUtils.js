@@ -19,8 +19,9 @@ function getLikes() {
 
 function getUpdateBody() {
   // from 2 to 15 paragraphs
-  const paragraphCount =
-    Math.floor(Math.random() * (BODY_PARAGRAPH_MAX - BODY_PARAGRAPH_MIN + 1)) + BODY_PARAGRAPH_MIN;
+  const paragraphCount = Math.floor(Math.random()
+    * (BODY_PARAGRAPH_MAX - BODY_PARAGRAPH_MIN + 1))
+    + BODY_PARAGRAPH_MIN;
   return faker.lorem.paragraphs(paragraphCount);
 }
 
