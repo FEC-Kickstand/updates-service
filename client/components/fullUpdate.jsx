@@ -13,7 +13,7 @@ function FullUpdate(props) {
   return (
     <div>
       <h1>{title}</h1>
-      <div>{body}</div>
+      <div dangerouslySetInnerHTML={{ __html: '<div><b>This should be bold</b></div>' }} />
     </div>
   );
 }
