@@ -22,16 +22,16 @@ const randomDate = (start, end) => (
   new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
 );
 
+// [0, 1, 2, 3, 4]
 const randomizeArray = (arr) => {
   const copiedArr = arr.slice();
   for (let i = 0; i < copiedArr.length - 1; i += 1) {
-    for (let j = i; j < copiedArr.length; j += 1) {
-      const temp = copiedArr[i];
-      copiedArr[i] = copiedArr[j];
-      copiedArr[j] = temp;
-    }
+    const j = randomNum(i, arr.length - 1);
+    const temp = copiedArr[i];
+    copiedArr[i] = copiedArr[j];
+    copiedArr[j] = temp;
   }
-  return arr;
+  return copiedArr;
 };
 
 const intPadLeft = (num) => {
@@ -127,5 +127,5 @@ const generateAllSeedData = (num) => {
 
   return data;
 };
-
+generateAllSeedData(1);
 module.exports = generateAllSeedData;
