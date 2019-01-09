@@ -27,6 +27,11 @@ npm run build
 mysql.server start THEN mysql -u root
 
 ```
+To seed database
+```
+npm run create-database
+npm run seed-database
+```
 
 ## Requirements
 

@@ -5,14 +5,14 @@ const BODY_PARAGRAPH_MAX = 15;
 const BODY_PARAGRAPH_MIN = 2;
 const MIN_UPDATES = 2;
 const MAX_UPDATES = 10;
-const KICKSTARTER_FOUNDED = new Date(2009, 3, 28);
+const KICKSTAND_FOUNDED = new Date(2009, 3, 28);
 
 let updateCount = 0;
 
 /* ***************SIMPLE UTILS*************** */
 
 const randomNum = (min, max) => Math.floor(Math.random() * (max + 1 - min)) + min;
-const getName = () => faker.name.findName;
+const getName = () => faker.name.findName();
 const getLikes = () => Math.floor(Math.random() * LIKES_LIMIT);
 const getTitle = () => faker.hacker.phrase();
 const getSentence = () => faker.lorem.sentence();
@@ -59,7 +59,6 @@ const replaceRandomParagraphsWithBoldLines = (paragraphs) => {
 
   for (let i = 0; i <= numberToReplace; i += 1) {
     const replaceIdx = randomizedParagraphIndices.pop();
-    console.log(replaceIdx);
     paragraphsCopy[replaceIdx] = `<p><b>${getSentence()}</b></p>`;
   }
   return paragraphsCopy.join('');
@@ -83,7 +82,7 @@ const formatDateForSQL = (date) => {
 };
 
 const getUpdateData = (postedBy, projectId) => {
-  const date = randomDate(KICKSTARTER_FOUNDED, new Date());
+  const date = randomDate(KICKSTAND_FOUNDED, new Date());
   updateCount += 1;
   let body = getUpdateBody();
   body = paragraphsToHTMLArray(body);
@@ -128,7 +127,5 @@ const generateAllSeedData = (num) => {
 
   return data;
 };
-
-console.log(getUpdateData());
 
 module.exports = generateAllSeedData;

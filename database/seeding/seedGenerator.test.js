@@ -1,5 +1,5 @@
 /* eslint-env jest */
-const generateAllSeedData = require('./seedingUtils.js');
+const generateAllSeedData = require('./generateSeedData');
 
 describe('Seed Generation', () => {
   describe('seed generation function', () => {
@@ -51,7 +51,7 @@ describe('Seed Generation', () => {
         title: expect.any(String),
         body: expect.any(String),
         likes: expect.any(Number),
-        pubDate: expect.stringMatching(/\d\d\d\d-\d\d-\d\d\s\d\d:\d\d:\d\d/)
+        pubDate: expect.stringMatching(/\d\d\d\d-\d\d-\d\d\s\d\d:\d\d:\d\d/),
       });
     });
   });
