@@ -33,6 +33,8 @@
 // docker terminal
    docker-compose up
 ```
+4. Wait for the docker terminal to finish loading things
+5. Open a chrome window to `localhost`
 ### Stop Development
 1. <kbd>cmd</kbd> + <kbd>C</kbd> to stop the docker container
 2. Remove containers
