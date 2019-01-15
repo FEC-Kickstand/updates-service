@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-require('../database/seeding/index');
+// require('../database/seeding/index'); // <=== uncomment if you need to reseed
 const { Update } = require('../database/sequelize');
 
 const { HOST_PORT } = process.env;
