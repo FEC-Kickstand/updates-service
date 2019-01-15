@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import styles from '../styles/app.css';
 import PreviewsList from './previewsList';
-import FullUpdate from './fullUpdate';
+import UpdateModal from './updateModal';
 
 /* eslint-disable */
 const HOST_URL = process.env.HOST_URL;
@@ -37,14 +37,10 @@ class App extends React.Component {
 
     return (
       <div>
+        <UpdateModal update={singleUpdate} />
         <div className={styles.verticalMargin} />
         <div className={styles.wrapper}>
-          <div />
-          {
-            singleUpdate ? <FullUpdate update={singleUpdate} />
-              : <PreviewsList changeView={this.changeView} updates={updates} />
-          }
-          <div />
+          <PreviewsList changeView={this.changeView} updates={updates} />
         </div>
         <div className={styles.verticalMargin} />
       </div>
@@ -53,3 +49,12 @@ class App extends React.Component {
 }
 
 export default App;
+
+/*
+<div />
+          {
+            singleUpdate ? <UpdateModal update={singleUpdate} />
+              : <PreviewsList changeView={this.changeView} updates={updates} />
+          }
+          <div />
+*/
