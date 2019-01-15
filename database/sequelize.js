@@ -23,7 +23,8 @@ Project.belongsTo(User, { foreignKey: 'ownerId' });
 Update.belongsTo(User, { foreignKey: 'postedBy' });
 Update.belongsTo(Project, { foreignKey: 'projectId' });
 
-sequelize.sync({ force: true })
+// sequelize.sync({ force: true }) // <== if you need to reseed, uncomment
+sequelize.sync()
   .then(() => console.log('Sequelize connection established!'))
   .catch(err => console.error('Sequelize failed to connect.', err));
 
