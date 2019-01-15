@@ -5,16 +5,16 @@ import styles from '../styles/modal.css';
 
 function FullUpdate(props) {
   const makeModal = () => {
-    const {
-      title,
-      body,
-      likes,
-      pubDate,
-    } = props.update;
+    // const {
+    //   title,
+    //   body,
+    //   likes,
+    //   pubDate,
+    // } = props.update;
 
     return (
       <div className={`${styles.modal} ${styles.visible}`}>
-        <h1>{title}</h1>
+        <h1>Testing Modal</h1>
         <div dangerouslySetInnerHTML={{ __html: '<div><b>This should be bold</b></div>' }} />
       </div>
     );
@@ -24,7 +24,8 @@ function FullUpdate(props) {
     return <div className={`${styles.modal} ${styles.visible}`} />;
   };
 
-  return props.update ? makeModal() : makePlaceholder();
+  // return props.update ? makeModal() : makePlaceholder();
+  return makeModal();
 }
 
 export default FullUpdate;

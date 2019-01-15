@@ -37,7 +37,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <UpdateModal update={singleUpdate} />
+        {/* <UpdateModal update={singleUpdate} /> */}
         <div className={styles.verticalMargin} />
         <div className={styles.wrapper}>
           <PreviewsList changeView={this.changeView} updates={updates} />
