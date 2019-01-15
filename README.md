@@ -19,15 +19,29 @@
 1. [Development](#development)
 
 ## Usage
-
+### Start Development
+1. Navigate to the FEC directory just above the repo.
+2. Open the directory in vsCode.
+3. Navigate into the `updates-service` repo.
+   1. Open three terminal windows
+      1. One for git
+      2. One for webpack build
+      3. One for docker-compose
 ```
-// New terminal at each step
-npm run start
-npm run build
-mysql.server start THEN mysql -u root
-
+// webpack terminal
+   npm run build:dev
+// docker terminal
+   docker-compose up
 ```
-
+4. Wait for the docker terminal to finish loading things
+5. Open a chrome window to `localhost`
+### Stop Development
+1. <kbd>cmd</kbd> + <kbd>C</kbd> to stop the docker container
+2. Remove containers
+```
+docker-compose down
+```
+3. No need to remove the images at this time (it will just mean you need to rebuild them)
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).

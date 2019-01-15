@@ -1,19 +1,19 @@
-// EXPRESS DEPENDENCIES
-const express = require('express');
 const path = require('path');
+const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
-// require('dotenv').config({ path: path.resolve(__dirname, `../../${process.env.NODE_ENV}.env`) });
-// DATABASE DEPENDENCY
-const initializeSequelize = require('../database/db.js');
+require('../database/seeding/index');
+const { Update } = require('../database/sequelize');
 
 const { HOST_PORT } = process.env;
+const logging = process.env.NODE_ENV === 'development' ? morgan('dev') : morgan('short');
+
 const app = express();
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(morgan('dev'));
+app.use(logging);
 app.use(bodyParser.json());
 
 app.get('/:projectId', (req, res) => {
@@ -21,17 +21,13 @@ app.get('/:projectId', (req, res) => {
 });
 
 app.get('/:projectId/updates', (req, res) => {
-  const { Update, sequelizeConnection, sequelize } = initializeSequelize();
-  sequelizeConnection.then(() =>
-    Update.findAll({
-      where: {
-        projectId: req.params.projectId
-      }
-    })
-      .then(updates => res.send(updates))
-      .then(() => sequelize.close())
-      .catch(err => console.error(err))
-  );
+  Update.findAll({
+    where: {
+      projectId: req.params.projectId,
+    },
+  })
+    .then(updates => res.send(updates))
+    .catch(err => console.error('Error getting Updates', err));
 });
 
 app.listen(HOST_PORT, () => {
