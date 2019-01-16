@@ -1,14 +1,6 @@
 /* eslint-env browser */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Updates from './components/app';
-import MainNav from './components/mainNav';
-import UpdateModal from './components/updateModal';
+import App from './components/app';
 
-// window.Updates = Updates;
-
-// document.on('DOMContentLoaded', () => {
-// ReactDOM.render(<UpdateModal />, document.getElementById('body'));
-ReactDOM.render(<Updates />, document.getElementById('Updates'));
-ReactDOM.render(<MainNav />, document.getElementById('MainNav'));
-// });
+ReactDOM.render(<App />, document.getElementById('app'));

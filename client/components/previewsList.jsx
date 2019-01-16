@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Preview from './preview';
-import styles from '../styles/app.css';
+import styles from '../styles/updates.css';
 
 const PreviewsList = ({ updates, changeView }) => {
   if (!updates) {
