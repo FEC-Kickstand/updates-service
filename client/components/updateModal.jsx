@@ -3,29 +3,45 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import styles from '../styles/modal.css';
 
-function FullUpdate(props) {
-  const makeModal = () => {
-    // const {
-    //   title,
-    //   body,
-    //   likes,
-    //   pubDate,
-    // } = props.update;
+const UpdateModal = ({ update, changeView }) => {
+  const {
+    title,
+    body,
+    likes,
+    pubDate,
+  } = update;
 
-    return (
-      <div className={`${styles.modal} ${styles.visible}`}>
+  const visibilityStyle = title ? styles.visible : styles.hidden;
+
+  return (
+    <div className={`${styles.modal} ${visibilityStyle}`}>
+      <div className={`${styles.modalContent}`}>
+        <span className={`${styles.closeBtn}`}>&times;</span>
         <h1>Testing Modal</h1>
         <div dangerouslySetInnerHTML={{ __html: '<div><b>This should be bold</b></div>' }} />
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  const makePlaceholder = () => {
-    return <div className={`${styles.modal} ${styles.visible}`} />;
-  };
+UpdateModal.propTypes = {
+  update: PropTypes.shape({
+    title: PropTypes.string,
+    pubDate: PropTypes.string,
+    likes: PropTypes.number,
+    body: PropTypes.string,
+  }),
+  changeView: PropTypes.func.isRequired,
+};
 
-  // return props.update ? makeModal() : makePlaceholder();
-  return makeModal();
-}
+UpdateModal.defaultProps = {
+  update: {
+    title: '',
+    pubDate: '',
+    likes: 0,
+    body:
+      '',
+  },
+};
 
-export default FullUpdate;
+export default UpdateModal;
