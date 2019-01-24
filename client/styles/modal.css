@@ -1,9 +1,27 @@
 .modal {
-  z-index: 1;
-  background-color: rgba(0, 0, 0, .5);
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, .5);
+  overflow: auto;
+}
+
+.modalContent {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  padding: 20px;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, .2), 0 7px 20px 0 rgba(0, 0, 0, .17);
+}
+
+.closeBtn {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .hidden {
