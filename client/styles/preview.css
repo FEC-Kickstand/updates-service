@@ -8,7 +8,7 @@
   src: url('../fonts/MaisonNeueBook.otf') format("opentype");
 }
 
-.right {
+.wrapperRight {
   padding-top: 7px;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@
   border-left: 1px solid lightgray;
 }
 
-.left {
+.wrapperLeft {
   padding-top: 7px;
   /* The below margin is to avoid an off by one pixel issue */
   margin-right: -1px;

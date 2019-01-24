@@ -12,7 +12,7 @@ const PreviewsList = ({ updates, changeView }) => {
     );
   }
 
-  const updateComponents = updates.reduce((acc, update, idx) => {
+  const previewComponentsOnAlternatingSides = updates.reduce((acc, update, idx) => {
     const side = idx % 2 === 0 ? 'right' : 'left';
     const preview = <Preview changeView={changeView} update={update} side={side} key={update.id} />;
     const spacer = <div key={`${update.id}spacer`} />;
@@ -29,7 +29,7 @@ const PreviewsList = ({ updates, changeView }) => {
 
   return (
     <div className={styles.contentWrapper}>
-      {updateComponents}
+      {previewComponentsOnAlternatingSides}
     </div>
   );
 };

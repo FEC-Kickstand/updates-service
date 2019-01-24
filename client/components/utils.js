@@ -1,5 +1,3 @@
-
-
 const createMarkup = markup => ({ __html: markup });
 
 const getHighlightColor = () => {
@@ -7,6 +5,8 @@ const getHighlightColor = () => {
   const randomIdx = Math.floor(Math.random() * colors.length);
   return colors[randomIdx];
 };
+
+const capitalize = str => str[0].toUpperCase() + str.slice(1);
 
 const defaultUpdate = {
   title: '',
@@ -16,4 +16,9 @@ const defaultUpdate = {
     '',
 };
 
-export { createMarkup, getHighlightColor, defaultUpdate };
+export {
+  createMarkup,
+  getHighlightColor,
+  capitalize,
+  defaultUpdate,
+};
