@@ -16,9 +16,9 @@ const UpdateModal = ({ update, changeView }) => {
   return (
     <div className={`${styles.modal} ${visibilityStyle}`}>
       <div className={`${styles.modalContent}`}>
-        <span className={`${styles.closeBtn}`}>&times;</span>
+        <span className={`${styles.closeBtn}`} onClick={() => changeView(undefined)}>&times;</span>
         <h1>Testing Modal</h1>
-        <div dangerouslySetInnerHTML={{ __html: '<div><b>This should be bold</b></div>' }} />
+        <div dangerouslySetInnerHTML={{ __html: body }} />
       </div>
     </div>
   );
