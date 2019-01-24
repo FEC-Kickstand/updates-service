@@ -4,13 +4,15 @@ import moment from 'moment';
 import DateHeader from './dateHeader';
 import styles from '../styles/preview.css';
 
-const createMarkup = markup => ({ __html: markup });
-
 class Preview extends React.Component {
   static getHighlightColor() {
     const colors = ['Sky', 'Teal', 'Apricot'];
     const randomIdx = Math.floor(Math.random() * colors.length);
     return colors[randomIdx];
+  }
+
+  static createMarkup(markup) {
+    return { __html: markup };
   }
 
   constructor(props) {
@@ -72,7 +74,7 @@ class Preview extends React.Component {
           >
             {title}
           </div>
-          <div className={styles.body} dangerouslySetInnerHTML={createMarkup(body)}></div>
+          <div className={styles.body} dangerouslySetInnerHTML={Preview.createMarkup(body)}></div>
           <div className={side === 'left' ? styles.footerLeft : styles.footerRight}>
             <div className={`${styles.footerElement} ${styles.comments}`}>12 Comments</div>
             <div className={styles.footerElement}>{`${likes} Likes`}</div>
