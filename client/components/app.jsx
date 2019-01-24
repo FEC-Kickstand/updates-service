@@ -13,7 +13,7 @@ const HOST_PORT = process.env.HOST_PORT;
 class App extends Component {
   constructor() {
     super();
-    this.state = { updates: null, singleUpdate: null };
+    this.state = { updates: undefined, singleUpdate: undefined };
     this.changeView = this.changeView.bind(this);
   }
 
@@ -37,7 +37,7 @@ class App extends Component {
 
     return (
       <div>
-        <UpdateModal update={singleUpdate} />
+        <UpdateModal update={singleUpdate} changeView={this.changeView} />
         <MainNav />
         <Updates updates={updates} changeView={this.changeView} />
       </div>
