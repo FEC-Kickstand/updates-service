@@ -29,6 +29,11 @@ class App extends Component {
   }
 
   changeView(update) {
+    if (update) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
     this.setState({ singleUpdate: update });
   }
 
