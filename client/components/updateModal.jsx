@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import styles from '../styles/modal.css';
+import { defaultUpdate, updatePropTypes, createMarkup } from './utils';
 
 const UpdateModal = ({ update, changeView }) => {
   const {
@@ -18,30 +18,19 @@ const UpdateModal = ({ update, changeView }) => {
       <div className={`${styles.modalContent}`}>
         <span className={`${styles.closeBtn}`} onClick={() => changeView(undefined)}>&times;</span>
         <h1>Testing Modal</h1>
-        <div dangerouslySetInnerHTML={{ __html: body }} />
+        <div dangerouslySetInnerHTML={createMarkup(body)} />
       </div>
     </div>
   );
 };
 
 UpdateModal.propTypes = {
-  update: PropTypes.shape({
-    title: PropTypes.string,
-    pubDate: PropTypes.string,
-    likes: PropTypes.number,
-    body: PropTypes.string,
-  }),
+  update: updatePropTypes,
   changeView: PropTypes.func.isRequired,
 };
 
 UpdateModal.defaultProps = {
-  update: {
-    title: '',
-    pubDate: '',
-    likes: 0,
-    body:
-      '',
-  },
+  update: defaultUpdate,
 };
 
 export default UpdateModal;

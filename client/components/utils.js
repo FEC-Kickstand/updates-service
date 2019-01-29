@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const createMarkup = markup => ({ __html: markup });
 
 const getHighlightColor = () => {
@@ -16,9 +18,17 @@ const defaultUpdate = {
     '',
 };
 
+const updatePropTypes = PropTypes.shape({
+  title: PropTypes.string,
+  pubDate: PropTypes.string,
+  likes: PropTypes.number,
+  body: PropTypes.string,
+});
+
 export {
   createMarkup,
   getHighlightColor,
   capitalize,
   defaultUpdate,
+  updatePropTypes,
 };

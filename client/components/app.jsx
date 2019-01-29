@@ -39,7 +39,7 @@ class App extends Component {
       <div>
         <UpdateModal update={singleUpdate} changeView={this.changeView} />
         <MainNav />
-        <Updates updates={updates} changeView={this.changeView} />
+        <Updates updates={updates} changeView={this.changeView} modalOpen={!!singleUpdate} />
       </div>
     );
   }
