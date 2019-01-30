@@ -11,10 +11,16 @@ const UpdateModal = ({ update, changeView }) => {
     pubDate,
   } = update;
 
+  const handleOutsideClick = (event) => {
+    if (event.target.classList.contains(`${styles.modal}`)) {
+      changeView(undefined);
+    }
+  };
+
   const visibilityStyle = title ? styles.visible : styles.hidden;
 
   return (
-    <div className={`${styles.modal} ${visibilityStyle}`}>
+    <div className={`${styles.modal} ${visibilityStyle}`} onClick={handleOutsideClick}>
       <div className={`${styles.modalContent}`}>
         <span className={`${styles.closeBtn}`} onClick={() => changeView(undefined)}>&times;</span>
         <h1>Testing Modal</h1>

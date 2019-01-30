@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Updates from './updates';
 import MainNav from './mainNav';
-import UpdateModal from './updateModal';
+import UpdateModal from './modal';
 
 /* eslint-disable */
 const HOST_URL = process.env.HOST_URL;
