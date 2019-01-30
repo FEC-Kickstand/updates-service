@@ -15,3 +15,7 @@
 .verticalMargin {
   height: 50px;
 }
+
+.modalOpen {
+  overflow: hidden;
+}

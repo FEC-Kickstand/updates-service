@@ -1,19 +1,19 @@
 /* eslint-env browser */
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import styles from '../styles/app.css';
-import PreviewsList from './previewsList';
-import FullUpdate from './fullUpdate';
+import Updates from './updates';
+import MainNav from './mainNav';
+import UpdateModal from './modal';
 
 /* eslint-disable */
 const HOST_URL = process.env.HOST_URL;
 const HOST_PORT = process.env.HOST_PORT;
 /* eslint-enable */
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
-    this.state = { updates: null, singleUpdate: null };
+    this.state = { updates: undefined, singleUpdate: undefined };
     this.changeView = this.changeView.bind(this);
   }
 
@@ -29,6 +29,11 @@ class App extends React.Component {
   }
 
   changeView(update) {
+    if (update) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
     this.setState({ singleUpdate: update });
   }
 
@@ -37,16 +42,9 @@ class App extends React.Component {
 
     return (
       <div>
-        <div className={styles.verticalMargin} />
-        <div className={styles.wrapper}>
-          <div />
-          {
-            singleUpdate ? <FullUpdate update={singleUpdate} />
-              : <PreviewsList changeView={this.changeView} updates={updates} />
-          }
-          <div />
-        </div>
-        <div className={styles.verticalMargin} />
+        <UpdateModal update={singleUpdate} changeView={this.changeView} />
+        <MainNav />
+        <Updates updates={updates} changeView={this.changeView} modalOpen={!!singleUpdate} />
       </div>
     );
   }
