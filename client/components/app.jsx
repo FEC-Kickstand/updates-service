@@ -4,6 +4,7 @@ import axios from 'axios';
 import Updates from './updates';
 import MainNav from './mainNav';
 import UpdateModal from './modal';
+import styles from '../styles/modal.css';
 
 /* eslint-disable */
 const HOST_URL = process.env.HOST_URL;
@@ -28,11 +29,13 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+
   changeView(update) {
+    // the if else below toggles background scroll off when modal opens
     if (update) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add(`${styles.modalOpen}`);
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.classList.remove(`${styles.modalOpen}`);
     }
     this.setState({ singleUpdate: update });
   }

@@ -30,7 +30,7 @@ export default class MainNav extends React.Component {
         <img
           alt=""
           className={styles.logoImg}
-          src="https://d3mlfyygrfdi2i.cloudfront.net/kickstarter-logo-color.png"
+          src="https://s3-us-west-1.amazonaws.com/fec.updates/kickstand_logo.png"
         />
         <div className={styles.searchContainer}>
           <input
