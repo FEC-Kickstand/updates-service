@@ -37,3 +37,8 @@
 .visible {
   visibility: visible;
 }
+
+.title {
+  font-family: "Cooper Light", Georgia, serif;
+  font-size: 35px;
+}
