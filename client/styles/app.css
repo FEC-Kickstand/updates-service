@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Maison Neue Book';
+  src: url('../fonts/MaisonNeueBook.otf') format("opentype");
+}
+
+@font-face {
+  font-family: 'Cooper Light';
+  src: url('../fonts/CooperLightBT.ttf');
+}
+
+:global {
+  @font-face: 'Maison Neue Book';
+  @font-face: 'Cooper Light';
+}
+
+.app {
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}

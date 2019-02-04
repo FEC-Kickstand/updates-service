@@ -6,6 +6,7 @@ import MainNav from './mainNav';
 import UpdateModal from './modal';
 import styles from '../styles/modal.css';
 import { getScrollbarWidth } from './utils';
+import globalStyles from '../styles/app.css';
 
 /* eslint-disable */
 const HOST_URL = process.env.HOST_URL;
@@ -51,7 +52,7 @@ class App extends Component {
     const { updates, singleUpdate } = this.state;
 
     return (
-      <div >
+      <div className={globalStyles.app}>
         <UpdateModal update={singleUpdate} changeView={this.changeView} />
         <MainNav />
         <Updates updates={updates} changeView={this.changeView} modalOpen={!!singleUpdate} />

@@ -17,26 +17,16 @@ const UpdateModal = ({ update, changeView }) => {
     }
   };
 
-  // const handleScroll = (event) => {
-  //   console.log(event);
-  //   event.preventDefault()
-  //   event.stopPropagation();
-  // };
-
   const visibilityStyle = title ? styles.visible : styles.hidden;
-
-  // onWheel={handleScroll}
-  // onScroll={handleScroll}
 
   return (
     <div
       className={`${styles.modal} ${visibilityStyle}`}
       onClick={handleOutsideClick}
-
     >
       <div className={`${styles.modalContent}`}>
         <span className={`${styles.closeBtn}`} onClick={() => changeView(undefined)}>&times;</span>
-        <h1>Testing Modal</h1>
+        <div className={styles.title}>{title}</div>
         <div dangerouslySetInnerHTML={createMarkup(body)} />
       </div>
     </div>
