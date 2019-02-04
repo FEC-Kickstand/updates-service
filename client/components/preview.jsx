@@ -9,6 +9,7 @@ import {
   createMarkup,
   getHighlightColor,
   capitalize,
+  abbreviateParagraphs,
 } from './utils';
 
 class Preview extends React.Component {
@@ -67,7 +68,7 @@ class Preview extends React.Component {
           >
             {title}
           </div>
-          <div className={styles.body} dangerouslySetInnerHTML={createMarkup(body)} />
+          <div className={styles.body} dangerouslySetInnerHTML={createMarkup(abbreviateParagraphs(body))} />
           <Footer likes={likes} comments={Math.ceil(Math.random() * 20) + 1} side={styleSide} />
         </div>
       </div>

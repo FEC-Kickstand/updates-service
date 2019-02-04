@@ -11,6 +11,18 @@ const getHighlightColor = () => {
 
 const capitalize = str => str[0].toUpperCase() + str.slice(1);
 
+const abbreviateParagraphs = (paragraphsStr) => {
+  const third = 2;
+  const closingTag = '</p>';
+  const paragraphs = paragraphsStr.split(closingTag);
+  if (paragraphs.length <= 3) {
+    return paragraphs.join(closingTag);
+  }
+  paragraphs[third] += '...';
+  const firstThreeParagraphs = paragraphs.slice(0, third + 1);
+  return firstThreeParagraphs.join(closingTag);
+};
+
 const getScrollbarWidth = () => {
   let { width } = getScrollbarWidth;
   let div;
@@ -46,6 +58,7 @@ export {
   createMarkup,
   getHighlightColor,
   capitalize,
+  abbreviateParagraphs,
   getScrollbarWidth,
   defaultUpdate,
   updatePropTypes,
