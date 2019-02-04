@@ -5,6 +5,7 @@ import PreviewsList from './previewsList';
 
 const Updates = ({ updates, changeView, modalOpen }) => {
   const wrapperStyle = modalOpen ? `${styles.wrapper} ${styles.modalOpen}` : styles.wrapper;
+
   return (
     <div>
       <div className={wrapperStyle}>
