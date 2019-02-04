@@ -52,24 +52,3 @@
   margin: 25px 0;
   color: #282828;
 }
-
-.footerLeft {
-  margin-bottom: 45px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.footerRight {
-  margin-bottom: 45px;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.footerElement {
-  color: #282828;
-  cursor: pointer;
-}
-
-.comments {
-  margin: 0 15px 0 0;
-}

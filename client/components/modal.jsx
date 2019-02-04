@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/modal.css';
 import { defaultUpdate, updatePropTypes, createMarkup } from './utils';
+import Footer from './footer';
 
 const UpdateModal = ({ update, changeView }) => {
   const {
@@ -46,6 +47,7 @@ const UpdateModal = ({ update, changeView }) => {
         </span>
         <div className={styles.title}>{title}</div>
         <div dangerouslySetInnerHTML={createMarkup(body)} />
+        <Footer likes={likes} comments={20} side="Right" />
       </div>
     </div>
   );
