@@ -19,8 +19,7 @@
 }
 
 .modalOpen {
-  overflow-y: scroll;
-  position: fixed;
+  overflow: hidden;
 }
 
 .closeBtn {
