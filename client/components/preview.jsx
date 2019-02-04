@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import DateHeader from './dateHeader';
+import Footer from './footer';
 import styles from '../styles/preview.css';
 import {
   defaultUpdate,
@@ -32,7 +34,8 @@ class Preview extends React.Component {
   }
 
   handleTitleKeyUp(event) {
-    if (event.keyCode === 13) {
+    const enterKey = 13;
+    if (event.keyCode === enterKey) {
       this.handleTitleClick();
     }
   }
@@ -65,10 +68,7 @@ class Preview extends React.Component {
             {title}
           </div>
           <div className={styles.body} dangerouslySetInnerHTML={createMarkup(body)} />
-          <div className={styles[`footer${styleSide}`]}>
-            <div className={`${styles.footerElement} ${styles.comments}`}>12 Comments</div>
-            <div className={styles.footerElement}>{`${likes} Likes`}</div>
-          </div>
+          <Footer likes={likes} comments={Math.ceil(Math.random() * 20) + 1} side={styleSide} />
         </div>
       </div>
     );
