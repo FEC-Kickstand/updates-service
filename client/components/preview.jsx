@@ -32,7 +32,8 @@ class Preview extends React.Component {
   }
 
   handleTitleKeyUp(event) {
-    if (event.keyCode === 13) {
+    const enterKey = 13;
+    if (event.keyCode === enterKey) {
       this.handleTitleClick();
     }
   }
