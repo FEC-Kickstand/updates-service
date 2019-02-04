@@ -5,6 +5,7 @@ import Updates from './updates';
 import MainNav from './mainNav';
 import UpdateModal from './modal';
 import styles from '../styles/modal.css';
+import { getScrollbarWidth } from './utils';
 
 /* eslint-disable */
 const HOST_URL = process.env.HOST_URL;
@@ -29,13 +30,19 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-
   changeView(update) {
-    // the if else below toggles background scroll off when modal opens
+    /*
+      The if-else below handles the scroll bar on the background content when
+      the modal opens. To avoid the content shifting when the scrollbar is disabled,
+      padding must be added to the right side of the app content.
+    */
     if (update) {
+      const scrollbarWidth = getScrollbarWidth();
       document.body.classList.add(`${styles.modalOpen}`);
+      document.body.style['padding-right'] = `${scrollbarWidth}px`;
     } else {
       document.body.classList.remove(`${styles.modalOpen}`);
+      document.body.style['padding-right'] = '0';
     }
     this.setState({ singleUpdate: update });
   }
@@ -44,7 +51,7 @@ class App extends Component {
     const { updates, singleUpdate } = this.state;
 
     return (
-      <div>
+      <div >
         <UpdateModal update={singleUpdate} changeView={this.changeView} />
         <MainNav />
         <Updates updates={updates} changeView={this.changeView} modalOpen={!!singleUpdate} />
