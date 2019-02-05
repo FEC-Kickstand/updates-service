@@ -1,6 +1,7 @@
 const faker = require('faker');
 
 const LIKES_LIMIT = 500;
+const COMMENTS_LIMIT = 40;
 const BODY_PARAGRAPH_MAX = 15;
 const BODY_PARAGRAPH_MIN = 2;
 const MIN_UPDATES = 2;
@@ -11,9 +12,11 @@ let updateCount = 0;
 
 /* ***************SIMPLE UTILS*************** */
 
+// randNum min and max are inclusive
 const randomNum = (min, max) => Math.floor(Math.random() * (max + 1 - min)) + min;
 const getName = () => faker.name.findName();
-const getLikes = () => Math.floor(Math.random() * LIKES_LIMIT);
+const getLikes = () => randomNum(1, LIKES_LIMIT);
+const getComments = () => randomNum(1, COMMENTS_LIMIT);
 const getTitle = () => faker.hacker.phrase();
 const getSentence = () => faker.lorem.sentence();
 const paragraphsToHTMLArray = text => text.split('\n \r').map(paragraph => `<p>${paragraph}</p>`);
@@ -95,6 +98,7 @@ const getUpdateData = (postedBy, projectId) => {
     title: getTitle(),
     id: updateCount,
     likes: getLikes(),
+    comments: getComments(),
     pubDate: formatDateForSQL(date),
   };
 };
