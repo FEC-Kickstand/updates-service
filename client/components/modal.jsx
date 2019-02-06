@@ -9,7 +9,6 @@ const UpdateModal = ({ update, changeView }) => {
     title,
     body,
     likes,
-    pubDate,
   } = update;
 
   const handleOutsideClick = (event) => {

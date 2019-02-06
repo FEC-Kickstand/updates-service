@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from '../styles/footer.css';
 
 
@@ -16,6 +17,12 @@ const Footer = ({ likes, comments, side }) => {
       </div>
     </div>
   );
+};
+
+Footer.propTypes = {
+  likes: PropTypes.number.isRequired,
+  comments: PropTypes.number.isRequired,
+  side: PropTypes.string.isRequired,
 };
 
 export default Footer;

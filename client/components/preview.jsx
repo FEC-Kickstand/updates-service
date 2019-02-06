@@ -48,6 +48,7 @@ class Preview extends React.Component {
       title,
       body,
       likes,
+      comments,
       pubDate,
     } = update;
     const styleSide = capitalize(side);
@@ -68,8 +69,11 @@ class Preview extends React.Component {
           >
             {title}
           </div>
-          <div className={styles.body} dangerouslySetInnerHTML={createMarkup(abbreviateParagraphs(body))} />
-          <Footer likes={likes} comments={Math.ceil(Math.random() * 20) + 1} side={styleSide} />
+          <div
+            className={styles.body}
+            dangerouslySetInnerHTML={createMarkup(abbreviateParagraphs(body))}
+          />
+          <Footer likes={likes} comments={comments} side={styleSide} />
         </div>
       </div>
     );
