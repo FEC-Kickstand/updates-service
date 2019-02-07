@@ -11,7 +11,7 @@ const Footer = ({ likes, comments, side }) => {
       <div className={styles.heartWrapper}>
         <img
           className={styles.heart}
-          src="https://s3-us-west-1.amazonaws.com/fec.updates/svg-red-heart-icon-1.svg"
+          src="https://s3-us-west-1.amazonaws.com/fec.updates/minifiedHeart.svg"
           alt="heart"
         />
       </div>
