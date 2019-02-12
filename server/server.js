@@ -11,8 +11,20 @@ const logging = process.env.NODE_ENV === 'development' ? morgan('dev') : morgan(
 
 const app = express();
 
+const staticOptions = {
+  setHeaders(res, filePath) {
+    if (filePath.indexOf('js.gz') !== -1) {
+      console.log('hit gzip at filepath:', filePath);//
+      res.set({
+        'Content-Encoding': 'gzip',
+        'Content-Type': 'application/javascript',
+      });
+    }
+  },
+};
+
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public'), staticOptions));
 app.use(logging);
 app.use(bodyParser.json());
 

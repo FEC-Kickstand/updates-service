@@ -30,7 +30,7 @@ export default class MainNav extends React.Component {
         <img
           alt=""
           className={styles.logoImg}
-          src="https://s3-us-west-1.amazonaws.com/fec.updates/kickstand_logo.png"
+          src="https://s3-us-west-1.amazonaws.com/fec.updates/kickstand_logo_reduced_size.png"
         />
         <div className={styles.searchContainer}>
           <input
@@ -43,7 +43,7 @@ export default class MainNav extends React.Component {
           <img
             alt=""
             className={styles.magnifyingGlassImg}
-            src="https://s3-us-west-1.amazonaws.com/fec.updates/magnifying-glass.png"
+            src="https://s3-us-west-1.amazonaws.com/fec.updates/magnifying-glass.svg"
           />
           <img
             alt=""

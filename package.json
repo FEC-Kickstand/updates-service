@@ -7,12 +7,13 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build:prod": "webpack --env.NODE_ENV=production",
+    "build:prod": "webpack -p",
     "build:dev": "webpack -d --watch",
     "start:dev": "NODE_ENV=development nodemon server/server.js",
     "start:prod": "NODE_ENV=production node server/server.js",
     "create-database": "node database/seeding/initializeDatabase",
     "seed": "node database/seeding/index.js",
+    "min-font": "node fontMin.js",
     "test": "jest",
     "test-watch": "jest --watch"
   },
@@ -39,6 +40,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "compression-webpack-plugin": "^2.0.0",
     "dotenv-webpack": "^1.5.7",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
@@ -48,6 +50,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
+    "fontmin": "^0.9.7-beta",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.0",

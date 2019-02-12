@@ -17,7 +17,7 @@ RUN yarn install
 EXPOSE 80
 
 # for Dev
-CMD ["npm", "run", "start:dev"]
+# CMD ["npm", "run", "start:dev"]
 
 # Uncomment line below for prod
-# CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "start:prod"]

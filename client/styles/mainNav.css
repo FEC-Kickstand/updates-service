@@ -22,9 +22,13 @@
   outline: none;
 }
 
+.magnifyingGlassImg {
+  height: 18px;
+  width: 18px;
+  padding-left: 8px;
+}
+
 .logoImg {
-  width: 14%;
-  height: auto;
   align-self: center;
 }
 
