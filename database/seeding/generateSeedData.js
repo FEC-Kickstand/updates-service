@@ -47,12 +47,12 @@ const intPadLeft = (num) => {
 /* ***************COMPOUND UTILS*************** */
 
 const generateProjectData = (ownerId, projectId) => ({
-  ownerId,
-  projectId,
-  projectName: getTitle(),
+  owner: ownerId,
+  project_id: projectId,
+  project_name: getTitle(),
 });
 
-const generateUserData = userId => ({ userId, userName: getName() });
+const generateUserData = userId => ({ user_id: userId, user_name: getName() });
 
 const replaceRandomParagraphsWithBoldLines = (paragraphs) => {
   const paragraphsCopy = paragraphs.slice();
@@ -92,14 +92,14 @@ const getUpdateData = (postedBy, projectId) => {
   body = replaceRandomParagraphsWithBoldLines(body);
 
   return {
-    postedBy,
-    projectId,
+    posted_by: postedBy,
+    project: projectId,
     body,
     title: getTitle(),
-    id: updateCount,
+    update_id: updateCount,
     likes: getLikes(),
     comments: getComments(),
-    pubDate: formatDateForSQL(date),
+    published_date: formatDateForSQL(date),
   };
 };
 

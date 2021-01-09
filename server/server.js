@@ -6,7 +6,7 @@ const cors = require('cors');
 // require('../database/seeding/index'); // <=== uncomment if you need to reseed
 const { Update } = require('../database/sequelize');
 
-const { HOST_PORT } = process.env;
+const HOST_PORT = 3000;
 const logging = process.env.NODE_ENV === 'development' ? morgan('dev') : morgan('short');
 
 const app = express();

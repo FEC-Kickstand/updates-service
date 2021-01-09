@@ -1,14 +1,13 @@
-const initializeDatabase = require('./initializeDatabase');
+const { connection, promisifiedConnection } = require('../connection');
+const { User, Project, Update } = require('../models');
 const generateSeedData = require('./generateSeedData');
-const seedDatabase = require('./seedDatabase');
-const dbConfig = require('../db.config.js');
 
-initializeDatabase({
-  host: dbConfig.host,
-  user: dbConfig.user,
-  password: dbConfig.password,
-})
-  .then(() => {
-    const data = generateSeedData(100);
-    seedDatabase(data);
-  });
+const data = generateSeedData(10);
+
+promisifiedConnection
+  .then(() => User.bulkInsert(data.users))
+  .then(() => Project.bulkInsert(data.projects))
+  .then(() => Update.bulkInsert(data.updates))
+  .then(console.log)
+  .catch(console.error)
+  .finally(() => connection.end());

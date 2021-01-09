@@ -9,8 +9,8 @@ import { getScrollbarWidth } from './utils';
 import globalStyles from '../styles/app.css';
 
 /* eslint-disable */
-const HOST_URL = process.env.HOST_URL;
-const HOST_PORT = process.env.HOST_PORT;
+const HOST_URL = 'http://localhost';
+const HOST_PORT = 3000;
 /* eslint-enable */
 
 class App extends Component {
