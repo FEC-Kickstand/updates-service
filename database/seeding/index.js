@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('../../configureEnv');
 const { connection, promisifiedConnection } = require('../connection');
 const { User, Project, Update } = require('../models');
 const generateSeedData = require('./generateSeedData');
