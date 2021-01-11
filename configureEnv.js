@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { env } = process;
 const envKeys = [
   'DB',
@@ -14,15 +16,14 @@ if (env.NODE_ENV === 'production') {
   prefix = 'PROD_';
 }
 
+if (env.IS_DOCKER === 'true') {
+  prefix += 'CONTAINER_';
+}
+
 const config = {};
 envKeys.forEach((keyroot) => {
   const key = `${prefix}${keyroot}`;
-  config[key] = env[key];
+  config[keyroot] = env[key];
 });
 
-module.exports = {
-  database: env[`${prefix}DB`],
-  host: env[`${prefix}DB_HOST`],
-  user: env[`${prefix}DB_USER`],
-  password: env[`${prefix}DB_PASSWORD`],
-};
+module.exports = config;
