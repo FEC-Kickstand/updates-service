@@ -12,7 +12,7 @@
     "start:dev": "NODE_ENV=development nodemon server/server.js",
     "start:prod": "NODE_ENV=production node server/server.js",
     "create-database": "node database/seeding/initializeDatabase",
-    "seed": "DB=kickstand bash database/seeding/seed.bash",
+    "seed": "bash database/seeding/seed.bash",
     "min-font": "node fontMin.js",
     "test": "jest",
     "test-watch": "jest --watch"

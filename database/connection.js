@@ -1,4 +1,3 @@
-require('dotenv').config();
 const mysql = require('mysql');
 const dbConfig = require('./db.config.js');
 
@@ -6,7 +5,7 @@ const connection = mysql.createConnection({
   host: dbConfig.host,
   user: dbConfig.user,
   // password : 'secret',
-  database: 'kickstand',
+  database: dbConfig.database,
 });
 
 const connect = con => (

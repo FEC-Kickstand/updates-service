@@ -48,11 +48,11 @@ const intPadLeft = (num) => {
 
 const generateProjectData = (ownerId, projectId) => ({
   owner: ownerId,
-  project_id: projectId,
+  id: projectId,
   project_name: getTitle(),
 });
 
-const generateUserData = userId => ({ user_id: userId, user_name: getName() });
+const generateUserData = userId => ({ id: userId, user_name: getName() });
 
 const replaceRandomParagraphsWithBoldLines = (paragraphs) => {
   const paragraphsCopy = paragraphs.slice();
@@ -96,7 +96,7 @@ const getUpdateData = (postedBy, projectId) => {
     project: projectId,
     body,
     title: getTitle(),
-    update_id: updateCount,
+    id: updateCount,
     likes: getLikes(),
     comments: getComments(),
     published_date: formatDateForSQL(date),

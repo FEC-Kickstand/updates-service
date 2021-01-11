@@ -1,8 +1,9 @@
+require('dotenv').config();
 const { connection, promisifiedConnection } = require('../connection');
 const { User, Project, Update } = require('../models');
 const generateSeedData = require('./generateSeedData');
 
-const data = generateSeedData(10);
+const data = generateSeedData(100);
 
 promisifiedConnection
   .then(() => User.bulkInsert(data.users))

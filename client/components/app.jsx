@@ -24,7 +24,7 @@ class App extends Component {
     const splitURL = window.location.href.split('/');
     const projectId = Number(splitURL[splitURL.length - 1]) || 7;
     axios
-      .get(`${HOST_URL}:${HOST_PORT}/${projectId}/updates`)
+      .get(`${HOST_URL}:${HOST_PORT}/projects/${projectId}/updates`)
       .then((updates) => {
         this.setState({ updates: updates.data });
       })

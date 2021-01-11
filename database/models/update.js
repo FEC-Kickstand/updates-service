@@ -2,7 +2,7 @@ const Model = require('./Model');
 
 const NAME = 'updates';
 const COLUMNS = [
-  'update_id',
+  'id',
   'title',
   'body',
   'likes',
@@ -15,6 +15,20 @@ const COLUMNS = [
 class Update extends Model {
   constructor(connection) {
     super(connection, NAME, COLUMNS);
+  }
+
+  getAllByProjectId(projectId) {
+    const { connection } = this;
+    return new Promise((resolve, reject) => {
+      const sql = 'SELECT * FROM updates WHERE project = ?';
+      connection.query(sql, projectId, (err, results) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
+    });
   }
 }
 
