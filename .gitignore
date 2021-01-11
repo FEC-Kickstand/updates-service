@@ -27,7 +27,6 @@ bundle.js.map
 bundle.js.map.gz
 
 
-# Files
-public/bundle.js
-database/db.env.config.js
+# Private Config files
+.env
 
