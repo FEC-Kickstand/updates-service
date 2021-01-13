@@ -1,23 +1,24 @@
-FROM node:8.12.0-alpine
+# FROM node:latest
+FROM node:10-alpine3.10
 
-# Uncomment line below for prod
-# RUN mkdir -p /src/app
+# Prod
+RUN mkdir -p /src/app
 
-# Uncomment line below for prod
-# WORKDIR /src/app
+# Prod
+WORKDIR /src/app
 
-# Comment out line below for prod
-WORKDIR /bindmount
+# Dev
+# WORKDIR /bindmount
 
-# Uncomment line below for prod
-# COPY . /src/app
+# Prod
+COPY . /src/app
 
-RUN yarn install
+RUN npm install --production
 
-EXPOSE 80
+EXPOSE 3000
 
-# for Dev
-# CMD ["npm", "run", "start:dev"]
+# Dev
+CMD ["npm", "run", "start:container"]
 
-# Uncomment line below for prod
-CMD ["npm", "run", "start:prod"]
+# Prod
+# CMD ["npm", "run", "start:prod"]

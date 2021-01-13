@@ -8,11 +8,6 @@ import styles from '../styles/modal.css';
 import { getScrollbarWidth } from './utils';
 import globalStyles from '../styles/app.css';
 
-/* eslint-disable */
-const HOST_URL = 'http://localhost';
-const HOST_PORT = 3000;
-/* eslint-enable */
-
 class App extends Component {
   constructor() {
     super();
@@ -24,7 +19,7 @@ class App extends Component {
     const splitURL = window.location.href.split('/');
     const projectId = Number(splitURL[splitURL.length - 1]) || 7;
     axios
-      .get(`${HOST_URL}:${HOST_PORT}/projects/${projectId}/updates`)
+      .get(`/projects/${projectId}/updates`)
       .then((updates) => {
         this.setState({ updates: updates.data });
       })

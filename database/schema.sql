@@ -1,7 +1,3 @@
-DROP DATABASE IF EXISTS kickstand;
-CREATE DATABASE kickstand;
-USE kickstand;
-
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
     user_name CHAR(50) NOT NULL UNIQUE,

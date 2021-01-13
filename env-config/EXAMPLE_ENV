@@ -1,0 +1,25 @@
+#######
+# Fill in environment variables below.
+# Rename file to ".env"
+# Default values provided
+#######
+
+## db ##
+
+DB=kickstand
+DB_HOST=local
+DB_USER=root
+DB_PASSWORD=''
+
+## server ##
+
+HOST_PORT=3000
+EXPRESS_PORT=3000
+HOST_URL=http://localhost
+NODE_ENV=development
+
+## misc ##
+# true or false
+IS_DOCKER_CONTAINER=false
+# true or false
+RE_SEED=true

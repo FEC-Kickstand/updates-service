@@ -1,13 +1,14 @@
-require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+
+const { env } = process;
 const { Update } = require('../database');
 
-const { HOST_PORT } = process.env;
-const logging = process.env.NODE_ENV === 'development' ? morgan('dev') : morgan('short');
+const { EXPRESS_PORT, NODE_ENV } = env;
+const logging = NODE_ENV === 'development' ? morgan('dev') : morgan('short');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(cors())
   .use(logging)
   .use(bodyParser.json());
 
+
 app.get('/:projectId', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
@@ -37,6 +39,6 @@ app.get('/projects/:projectId/updates', (req, res) => {
     .catch(err => console.error('Error getting Updates', err));
 });
 
-app.listen(HOST_PORT, () => {
-  console.log(`Listening at PORT: ${HOST_PORT}`);
+app.listen(EXPRESS_PORT, () => {
+  console.log(`Listening at PORT: ${EXPRESS_PORT}`);
 });

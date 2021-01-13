@@ -1,8 +1,16 @@
-const { connection } = require('../connection');
-const Users = require('./User');
+const User = require('./User');
 const Project = require('./Project');
 const Update = require('./Update');
 
-exports.User = new Users(connection);
-exports.Project = new Project(connection);
-exports.Update = new Update(connection);
+const init = dbConnection => ({
+  User: new User(dbConnection),
+  Project: new Project(dbConnection),
+  Update: new Update(dbConnection),
+});
+
+module.exports = {
+  User,
+  Project,
+  Update,
+  init,
+};

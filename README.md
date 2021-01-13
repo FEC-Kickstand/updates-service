@@ -1,16 +1,15 @@
-# Project Name
+# Kickstand - Updates Service
 
-## Screenshot
-![screenshot](/screenShots/updates.png)
-
-> Project description
+# Description
+> Kickstand is a crowd-funding web application.
+> This Updates Microservice handles project "Update" posts - a way for project owners to update funders about the progress of the fund-raising effort.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/FEC-Kickstand/rewards-module-svc
+  - https://github.com/FEC-Kickstand/funding-widget-svc
+  - https://github.com/FEC-Kickstand/comments-module
+  - https://github.com/FEC-Kickstand/rewards-module-proxy
 
 ## Table of Contents
 
@@ -18,45 +17,41 @@
 1. [Requirements](#requirements)
 1. [Development](#development)
 
-## Usage
-### Start Development
-1. Navigate to the FEC directory just above the repo.
-2. Open the directory in vsCode.
-3. Navigate into the `updates-service` repo.
-   1. Open three terminal windows
-      1. One for git
-      2. One for webpack build
-      3. One for docker-compose
+## Dependendencies
+*Requires node.js and mysql version 5.7*
+
+## Run in development
+  - Copy `env-config/EXAMPLE_ENV` and rename copy to `env-config/.dev.env`.
+  - Note: if another name is chosen for this .env file, the dotenv config path in the npm script `start:dev` must be changed to match.
+  - If necessary, change environment variables in this file to match your environment.
+  - Other than `DB_PASSWORD`, the example environment variables are most likely fine.
+  - Can set `RE_SEED=false` after first run of application to disable automatic database reseeding.
 ```
-// webpack terminal
-   npm run build:dev
-// docker terminal
-   docker-compose up
+# install dependencies (run from root directory)
+npm install
+# run webpack in first terminal
+npm run build:dev
+# start the application server
+npm run start:dev
+# Open browser to localhost:3000
+# OR localhost:3000/<projectId> where <projectId> is a valid project record in the seed database
 ```
-4. Wait for the docker terminal to finish loading things
-5. Open a chrome window to `localhost`
-### Stop Development
-1. <kbd>cmd</kbd> + <kbd>C</kbd> to stop the docker container
-2. Remove containers
+
+## Run in docker
+*Docker and docker-compose must be installed*
+  - Copy `env-config/EXAMPLE_ENV` and rename copy to `env-config/.env`.
+  - Note: if a name other than `env-config/.env` is chosen, `env-file` must be changed to match in both `docker-compose.yml` and `docker-rebuild.bash`
+  - Set `DB_PASSWORD=''` to something other than an empty string
+  - Set `IS_DOCKER_CONTAINER=true`
+  - install npm dependencies:
 ```
-docker-compose down
-```
-3. No need to remove the images at this time (it will just mean you need to rebuild them)
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
 npm install
 ```
-
+  - Build and run the necessary containers by running the `docker-rebuild.bash` script in the root directory:
+```
+bash docker-rebuild.bash
+```
+  - Building the images, running the containers, and seeding the database will take a minute or two.
+  - Once `SEEDING COMPLETE!` prints in the terminal, the application should be running and can be navigated to in the browser.
+  - If changes are made to the application, the containers must be rebuilt with the same `docker-rebuild.bash` script (which will also remove the previously built containers).
+  - To remove previously built containers without rebuilding, run `docker-compose --env-file ./env-config/.env down`.

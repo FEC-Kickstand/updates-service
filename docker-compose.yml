@@ -1,0 +1,17 @@
+version: '3'
+services:
+  ks-db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+  ks-server:
+    image: kickstand-server:latest
+    env_file: ./env-config/.env # specifies env inside the container
+    # ^^ vs. cli flag '--env-file' in cli command 'docker-compose --env-file <filepath> up',
+    # which sets env variables which can be expanded in the docker-compose.yml itself
+    depends_on:
+      - "ks-db"
+    ports:
+      - "${HOST_PORT}:${EXPRESS_PORT}"
